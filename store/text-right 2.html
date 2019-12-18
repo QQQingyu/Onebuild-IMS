@@ -264,97 +264,68 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li aria-current="page" class="breadcrumb-item active">Checkout - Order review</li>
+                  <li aria-current="page" class="breadcrumb-item active">Text page</li>
                 </ol>
               </nav>
             </div>
-            <div id="checkout" class="col-lg-9">
-              <div class="box">
-                <form method="get" action="checkout4.html">
-                  <h1>Checkout - Order review</h1>
-                  <div class="nav flex-column flex-sm-row nav-pills"><a href="checkout1.html" class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-map-marker">                  </i>Address</a><a href="checkout2.html" class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-truck">                       </i>Delivery Method</a><a href="checkout3.html" class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-money">                      </i>Payment Method</a><a href="#" class="nav-link flex-sm-fill text-sm-center active"> <i class="fa fa-eye">                     </i>Order Review</a></div>
-                  <div class="content">
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th colspan="2">Product</th>
-                            <th>Quantity</th>
-                            <th>Unit price</th>
-                            <th>Discount</th>
-                            <th>Total</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><a href="#"><img src="img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
-                            <td><a href="#">White Blouse Armani</a></td>
-                            <td>2</td>
-                            <td>$123.00</td>
-                            <td>$0.00</td>
-                            <td>$246.00</td>
-                          </tr>
-                          <tr>
-                            <td><a href="#"><img src="img/basketsquare.jpg" alt="Black Blouse Armani"></a></td>
-                            <td><a href="#">Black Blouse Armani</a></td>
-                            <td>1</td>
-                            <td>$200.00</td>
-                            <td>$0.00</td>
-                            <td>$200.00</td>
-                          </tr>
-                        </tbody>
-                        <tfoot>
-                          <tr>
-                            <th colspan="5">Total</th>
-                            <th>$446.00</th>
-                          </tr>
-                        </tfoot>
-                      </table>
-                    </div>
-                    <!-- /.table-responsive-->
+            <div class="col-lg-9">
+              <div id="text-page" class="box">
+                <h1>Text formatting - Header level 1</h1>
+                <p class="lead">This page aim is to show you the most common HTML elements appearance on the website. For further reference please visit official <a href="http://getbootstrap.com/css/" class="external">Bootstrap website</a>.</p>
+                <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+                <h2>Header Level 2</h2>
+                <ol>
+                  <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                  <li>Aliquam tincidunt mauris eu risus.</li>
+                </ol>
+                <blockquote class="blockquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
+                </blockquote>
+                <h3>Header Level 3</h3>
+                <ul>
+                  <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                  <li>Aliquam tincidunt mauris eu risus.</li>
+                </ul>
+                <hr>
+                <h2>Images</h2>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p class="text-center"><img src="img/detailsquare.jpg" alt="" class="img-circle img-fluid"></p>
+                    <p class="text-center">circle</p>
                   </div>
-                  <!-- /.content-->
-                  <div class="box-footer d-flex justify-content-between"><a href="checkout3.html" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i>Back to payment method</a>
-                    <button type="submit" class="btn btn-primary">Place an order<i class="fa fa-chevron-right"></i></button>
+                  <div class="col-md-4">
+                    <p class="text-center"><img src="img/detailsquare.jpg" alt="" class="img-thumbnail img-fluid"></p>
+                    <p class="text-center">thumbnail</p>
                   </div>
-                </form>
+                  <div class="col-md-4">
+                    <p class="text-center"><img src="img/detailsquare.jpg" alt="" class="rounded-circle img-fluid"></p>
+                    <p class="text-center">rounded</p>
+                  </div>
+                </div>
               </div>
-              <!-- /.box-->
             </div>
             <!-- /.col-lg-9-->
+            
             <div class="col-lg-3">
-              <div id="order-summary" class="card">
+              <!--
+              *** PAGES MENU ***
+              _________________________________________________________
+              -->
+              <div class="card sidebar-menu mb-4">
                 <div class="card-header">
-                  <h3 class="mt-4 mb-4">Order summary</h3>
+                  <h3 class="h4 card-title">Pages</h3>
                 </div>
                 <div class="card-body">
-                  <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-                  <div class="table-responsive">
-                    <table class="table">
-                      <tbody>
-                        <tr>
-                          <td>Order subtotal</td>
-                          <th>$446.00</th>
-                        </tr>
-                        <tr>
-                          <td>Shipping and handling</td>
-                          <th>$10.00</th>
-                        </tr>
-                        <tr>
-                          <td>Tax</td>
-                          <th>$0.00</th>
-                        </tr>
-                        <tr class="total">
-                          <td>Total</td>
-                          <th>$456.00</th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <ul class="nav nav-pills flex-column">
+                    <li><a href="text.html" class="nav-link">Text page</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact page</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                  </ul>
                 </div>
               </div>
+              <!-- *** PAGES MENU END ***-->
+              <div class="banner"><a href="#"><img src="img/banner.jpg" alt="sales 2014" class="img-fluid"></a></div>
             </div>
-            <!-- /.col-lg-3-->
           </div>
         </div>
       </div>

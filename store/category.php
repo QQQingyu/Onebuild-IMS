@@ -1,3 +1,5 @@
+<?php include_once("conn.php");
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -36,7 +38,7 @@
       <div id="top">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
+            
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
                 <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
@@ -77,7 +79,7 @@
         
       </div>
       <nav class="navbar navbar-expand-lg">
-        <div class="container"><a href="index.html" class="navbar-brand home"><img src="img/logo.png" alt="Obaju logo" class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Obaju logo" class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to homepage</span></a>
+        <div class="container"><a href="index.php" class="navbar-brand home"><img src="img/logo.png" alt="Obaju logo" class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Obaju logo" class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to homepage</span></a>
           <div class="navbar-buttons">
             <button type="button" data-toggle="collapse" data-target="#navigation" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
             <button type="button" data-toggle="collapse" data-target="#search" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a href="basket.html" class="btn btn-outline-secondary navbar-toggler"><i class="fa fa-shopping-cart"></i></a>
@@ -85,58 +87,51 @@
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
-              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Men<b class="caret"></b></a>
+              <li class="nav-item dropdown menu-large"><a href="category.php" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Category<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
                     <div class="row">
                       <div class="col-md-6 col-lg-3">
-                        <h5>Clothing</h5>
+                        <h5>MEN</h5>
                         <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">T-shirts</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Shirts</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Pants</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Accessories</a></li>
+                          <li class="nav-item"><a href="category.php?category=men&subcategory=T-shirt" class="nav-link">T-shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=men&subcategory=Shirts" class="nav-link">Shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=men&subcategory=Pants" class="nav-link">Pants</a></li>
+                          <li class="nav-item"><a href="category.php?category=men&subcategory=Jeans" class="nav-link">Jeans</a></li>
                         </ul>
                       </div>
                       <div class="col-md-6 col-lg-3">
-                        <h5>Shoes</h5>
+                        <h5>WOMEN</h5>
                         <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
+                          <li class="nav-item"><a href="category.php?category=women&subcategory=T-shirt" class="nav-link">T-shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=women&subcategory=Shirts" class="nav-link">Shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=women&subcategory=Pants" class="nav-link">Pants</a></li>
+                          <li class="nav-item"><a href="category.php?category=women&subcategory=Jeans" class="nav-link">Jeans</a></li>
                         </ul>
                       </div>
                       <div class="col-md-6 col-lg-3">
-                        <h5>Accessories</h5>
+                        <h5>BOYS</h5>
                         <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
+                          <li class="nav-item"><a href="category.php?category=boys&subcategory=T-shirt" class="nav-link">T-shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=boys&subcategory=Shirts" class="nav-link">Shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=boys&subcategory=Pants" class="nav-link">Pants</a></li>
+                          <li class="nav-item"><a href="category.php?category=boys&subcategory=Jeans" class="nav-link">Jeans</a></li>
                         </ul>
                       </div>
                       <div class="col-md-6 col-lg-3">
-                        <h5>Featured</h5>
+                        <h5>GIRLS</h5>
                         <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
+                          <li class="nav-item"><a href="category.php?category=girls&subcategory=T-shirt" class="nav-link">T-shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=girls&subcategory=Shirts" class="nav-link">Shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=girls&subcategory=Pants" class="nav-link">Pants</a></li>
+                          <li class="nav-item"><a href="category.php?category=girls&subcategory=Jeans" class="nav-link">Jeans</a></li>
                         </ul>
-                        <h5>Looks and trends</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                        </ul>
+                        
                       </div>
                     </div>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Ladies<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
                     <div class="row">
@@ -183,14 +178,13 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Template<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
                     <div class="row">
                       <div class="col-md-6 col-lg-3">
                         <h5>Shop</h5>
                         <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="index.html" class="nav-link">Homepage</a></li>
+                          <li class="nav-item"><a href="index.php" class="nav-link">Homepage</a></li>
                           <li class="nav-item"><a href="category.html" class="nav-link">Category - sidebar left</a></li>
                           <li class="nav-item"><a href="category-right.html" class="nav-link">Category - sidebar right</a></li>
                           <li class="nav-item"><a href="category-full.html" class="nav-link">Category - full width</a></li>
@@ -236,8 +230,8 @@
             </ul>
             <div class="navbar-buttons d-flex justify-content-end">
               <!-- /.nav-collapse-->
-              <div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></a>
-              <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span>3 items in cart</span></a></div>
+<!--              <div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></a>
+              <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span>3 items in cart</span></a></div>-->
             </div>
           </div>
         </div>
@@ -255,6 +249,25 @@
         </div>
       </div>
     </header>
+	
+<?
+include_once("conn.php");
+if (ISSET($_GET["subcategory"])){
+	$subcategory=$_GET["subcategory"];
+	$category = $_GET["category"];
+$sql= "SELECT * FROM  product where category='$category' and subcategory= '$subcategory' ";}
+	elseif (ISSET($_GET["category"])){
+	$category = $_GET["category"];
+$sql= "SELECT * FROM  product where category='$category' ";}
+else{
+	$sql = "SELECT * FROM  product";}
+	
+	
+	$result = mysqli_query($conn, $sql);
+	
+    // 输出数据
+	?>
+   
     <div id="all">
       <div id="content">
         <div class="container">
@@ -264,167 +277,162 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li aria-current="page" class="breadcrumb-item active">Shopping cart</li>
+                  <li aria-current="page" class="breadcrumb-item active"><? 
+				  if (mysqli_num_rows($result)>0){
+	$row = mysqli_fetch_assoc($result); 
+				  echo $row["category"];} ?></li>
                 </ol>
               </nav>
             </div>
-            <div id="basket" class="col-lg-9">
-              <div class="box">
-                <form method="post" action="checkout1.html">
-                  <h1>Shopping cart</h1>
-                  <p class="text-muted">You currently have 3 item(s) in your cart.</p>
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th colspan="2">Product</th>
-                          <th>Quantity</th>
-                          <th>Unit price</th>
-                          <th>Discount</th>
-                          <th colspan="2">Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><a href="#"><img src="img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
-                          <td><a href="#">White Blouse Armani</a></td>
-                          <td>
-                            <input type="number" value="2" class="form-control">
-                          </td>
-                          <td>$123.00</td>
-                          <td>$0.00</td>
-                          <td>$246.00</td>
-                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="#"><img src="img/basketsquare.jpg" alt="Black Blouse Armani"></a></td>
-                          <td><a href="#">Black Blouse Armani</a></td>
-                          <td>
-                            <input type="number" value="1" class="form-control">
-                          </td>
-                          <td>$200.00</td>
-                          <td>$0.00</td>
-                          <td>$200.00</td>
-                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <th colspan="5">Total</th>
-                          <th colspan="2">$446.00</th>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                  <!-- /.table-responsive-->
-                  <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
-                    <div class="left"><a href="category.html" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
-                    <div class="right">
-                      <button class="btn btn-outline-secondary"><i class="fa fa-refresh"></i> Update cart</button>
-                      <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <!-- /.box-->
-              <div class="row same-height-row">
-                <div class="col-lg-3 col-md-6">
-                  <div class="box same-height">
-                    <h3>You may also like these products</h3>
-                  </div>
+            <div class="col-lg-3">
+              <!--
+              *** MENUS AND FILTERS ***
+              _________________________________________________________
+              -->
+              <div class="card sidebar-menu mb-4">
+                <div class="card-header">
+                  <h3 class="h4 card-title">Categories</h3>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="product same-height">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product2_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
-                </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="product same-height">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product1.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product1_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product1.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
-                </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="product same-height">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product3_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product3.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
+                <div class="card-body">
+                  <ul class="nav nav-pills flex-column category-menu">
+                    <li><a href="category.php?category=men" class="nav-link">Men</a>
+                      <ul class="list-unstyled">
+                          <li class="nav-item"><a href="category.php?category=men&subcategory=T-shirt" class="nav-link">T-shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=men&subcategory=Shirts" class="nav-link">Shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=men&subcategory=Pants" class="nav-link">Pants</a></li>
+                          <li class="nav-item"><a href="category.php?category=men&subcategory=Jeans" class="nav-link">Jeans</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="category.php?category=women" class="nav-link active">WOMEN  <span class="badge badge-light">123</span></a>
+                      <ul class="list-unstyled">
+                          <li class="nav-item"><a href="category.php?category=women&subcategory=T-shirt" class="nav-link">T-shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=women&subcategory=Shirts" class="nav-link">Shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=women&subcategory=Pants" class="nav-link">Pants</a></li>
+                          <li class="nav-item"><a href="category.php?category=women&subcategory=Jeans" class="nav-link">Jeans</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="category.php?category=boys" class="nav-link">BOYS  <span class="badge badge-secondary">11</span></a>
+                      <ul class="list-unstyled">
+                          <li class="nav-item"><a href="category.php?category=boys&subcategory=T-shirt" class="nav-link">T-shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=boys&subcategory=Shirts" class="nav-link">Shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=boys&subcategory=Pants" class="nav-link">Pants</a></li>
+                          <li class="nav-item"><a href="category.php?category=boys&subcategory=Jeans" class="nav-link">Jeans</a></li>
+                      </ul>
+                    </li>
+					   <li><a href="category.php?category=girls" class="nav-link">GIRLS  <span class="badge badge-secondary">11</span></a>
+                      <ul class="list-unstyled">
+                          <li class="nav-item"><a href="category.php?category=girls&subcategory=T-shirt" class="nav-link">T-shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=girls&subcategory=Shirts" class="nav-link">Shirts</a></li>
+                          <li class="nav-item"><a href="category.php?category=girls&subcategory=Pants" class="nav-link">Pants</a></li>
+                          <li class="nav-item"><a href="category.php?category=girls&subcategory=Jeans" class="nav-link">Jeans</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
+              <div class="card sidebar-menu mb-4">
+      
+          
+              </div>
+              <div class="card sidebar-menu mb-4">
+          
+              </div>
+              <!-- *** MENUS AND FILTERS END ***-->
+              <div class="banner"><a href="#"><img src="img/banner.jpg" alt="sales 2014" class="img-fluid"></a></div>
+            </div>
+            <div class="col-lg-9">
+<!--              <div class="box">
+                <h1>Ladies</h1>
+                <p>In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide.</p>
+              </div>-->
+              <div class="box info-bar">
+                <div class="row">
+                  <div class="col-md-12 col-lg-4 products-showing">Showing <strong><? echo mysqli_num_rows($result); ?></strong>  products</div>
+                  <div class="col-md-12 col-lg-7 products-number-sort">
+                    <form class="form-inline d-block d-lg-flex justify-content-between flex-column flex-md-row" action="" method="post">
+                      <div class="products-sort-by mt-2 mt-lg-0"><strong>Sort by</strong>
+                        <select name="sort-by" class="form-control">
+                          <option value="price">Price</option>
+                          <option value="name">Name</option>
+                        </select>
+						<button type="submit">sort</button>
+                      </div>
+					 
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="row products">
+			  
+			  
+<?
+include_once("conn.php");
+if(ISSET($_POST["sort-by"])){
+$sort=$_POST["sort-by"];
+
+if (ISSET($_GET["subcategory"])){
+	$subcategory=$_GET["subcategory"];
+	$category = $_GET["category"];
+$sql= "SELECT * FROM  product where category='$category' and subcategory= '$subcategory' order by {$sort} ASC ";}
+	elseif (ISSET($_GET["category"])){
+	$category = $_GET["category"];
+$sql= "SELECT * FROM  product where category='$category' order by {$sort} ASC ";}
+else{
+	$sql = "SELECT * FROM  product order by {$sort} ASC";}
+	
+	
+
+}
+else {
+if (ISSET($_GET["subcategory"])){
+	$subcategory=$_GET["subcategory"];
+	$category = $_GET["category"];
+$sql= "SELECT * FROM  product where category='$category' and subcategory= '$subcategory' ";}
+	elseif (ISSET($_GET["category"])){
+	$category = $_GET["category"];
+$sql= "SELECT * FROM  product where category='$category' ";}
+else{
+	$sql = "SELECT * FROM  product";}
+	}
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result)>0){
+	while($row = mysqli_fetch_assoc($result)){
+	echo "
+	<div class='col-lg-4 col-md-6'>
+                  <div class='product'>
+                    <div class='flip-container'>
+                      <div class='flipper'>
+                        <div class='front'><a href='detail.php?id=".$row["id"]. "'><img src='../support/upload/".$row["pic"]. "' alt='' class='img-fluid'></a></div>
+                        <div class='back'><a href='detail.php?id=".$row["id"]. "'><img src='../support/upload/".$row["pic"]. "' alt='' class='img-fluid'></a></div>
+                      </div>
+                    </div><a href='detail.php?id=".$row["id"]. "' class='invisible'><img src='img/product1.jpg' alt='' class='img-fluid'></a>
+                    <div class='text'>
+                      <h3><a href='detail.php?id=".$row["id"]. "'>".$row["name"]."</a></h3>
+                      <p class='price'> 
+                        <del></del>$".$row["price"]."
+                      </p>
+                      <p class='buttons'><a href='detail.php?id=".$row["id"]. "' class='btn btn-outline-secondary'>View detail</a><a href='basket.php?id=".$row["id"]."' class='btn btn-primary'><i class='fa fa-shopping-cart'></i>Add to cart</a></p>
+                    </div>
+                    <!-- /.text-->
+                  </div>
+                  <!-- /.product            -->
+                </div>
+	";
+	
+	
+	
+	
+	
+	}
+	} 
+    // 输出数据
+	?>			  
+			  
+                
+              </div>
+              
             </div>
             <!-- /.col-lg-9-->
-            <div class="col-lg-3">
-              <div id="order-summary" class="box">
-                <div class="box-header">
-                  <h3 class="mb-0">Order summary</h3>
-                </div>
-                <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-                <div class="table-responsive">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>Order subtotal</td>
-                        <th>$446.00</th>
-                      </tr>
-                      <tr>
-                        <td>Shipping and handling</td>
-                        <th>$10.00</th>
-                      </tr>
-                      <tr>
-                        <td>Tax</td>
-                        <th>$0.00</th>
-                      </tr>
-                      <tr class="total">
-                        <td>Total</td>
-                        <th>$456.00</th>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="box">
-                <div class="box-header">
-                  <h4 class="mb-0">Coupon code</h4>
-                </div>
-                <p class="text-muted">If you have a coupon code, please enter it in the box below.</p>
-                <form>
-                  <div class="input-group">
-                    <input type="text" class="form-control"><span class="input-group-append">
-                      <button type="button" class="btn btn-primary"><i class="fa fa-gift"></i></button></span>
-                  </div>
-                  <!-- /input-group-->
-                </form>
-              </div>
-            </div>
-            <!-- /.col-md-3-->
           </div>
         </div>
       </div>
@@ -433,70 +441,26 @@
     *** FOOTER ***
     _________________________________________________________
     -->
-    <div id="footer">
+       <div id="footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-md-6">
-            <h4 class="mb-3">Pages</h4>
+            <h4 class="mb-3">Group Member</h4>
             <ul class="list-unstyled">
-              <li><a href="text.html">About us</a></li>
-              <li><a href="text.html">Terms and conditions</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="contact.html">Contact us</a></li>
+              <li>LIANGBAIKUN 56167821</a></li>
+              <li>LI NAN</li>
+              <li>QU XINMIAO</li>
+              <li>ZHANG QINGYU</li>
+			   <li>ZHANG JIAYUN</li>
             </ul>
             <hr>
-            <h4 class="mb-3">User section</h4>
-            <ul class="list-unstyled">
-              <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-              <li><a href="register.html">Regiter</a></li>
-            </ul>
-          </div>
-          <!-- /.col-lg-3-->
-          <div class="col-lg-3 col-md-6">
-            <h4 class="mb-3">Top categories</h4>
-            <h5>Men</h5>
-            <ul class="list-unstyled">
-              <li><a href="category.html">T-shirts</a></li>
-              <li><a href="category.html">Shirts</a></li>
-              <li><a href="category.html">Accessories</a></li>
-            </ul>
-            <h5>Ladies</h5>
-            <ul class="list-unstyled">
-              <li><a href="category.html">T-shirts</a></li>
-              <li><a href="category.html">Skirts</a></li>
-              <li><a href="category.html">Pants</a></li>
-              <li><a href="category.html">Accessories</a></li>
-            </ul>
-          </div>
-          <!-- /.col-lg-3-->
-          <div class="col-lg-3 col-md-6">
-            <h4 class="mb-3">Where to find us</h4>
-            <p><strong>Obaju Ltd.</strong><br>13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br><strong>Great Britain</strong></p><a href="contact.html">Go to contact page</a>
-            <hr class="d-block d-md-none">
-          </div>
-          <!-- /.col-lg-3-->
-          <div class="col-lg-3 col-md-6">
-            <h4 class="mb-3">Get the news</h4>
-            <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            <form>
-              <div class="input-group">
-                <input type="text" class="form-control"><span class="input-group-append">
-                  <button type="button" class="btn btn-outline-secondary">Subscribe!</button></span>
-              </div>
-              <!-- /input-group-->
-            </form>
-            <hr>
-            <h4 class="mb-3">Stay in touch</h4>
-            <p class="social"><a href="#" class="facebook external"><i class="fa fa-facebook"></i></a><a href="#" class="twitter external"><i class="fa fa-twitter"></i></a><a href="#" class="instagram external"><i class="fa fa-instagram"></i></a><a href="#" class="gplus external"><i class="fa fa-google-plus"></i></a><a href="#" class="email external"><i class="fa fa-envelope"></i></a></p>
-          </div>
+            
           <!-- /.col-lg-3-->
         </div>
         <!-- /.row-->
       </div>
       <!-- /.container-->
     </div>
-    <!-- /#footer-->
-    <!-- *** FOOTER END ***-->
     
     
     <!--
@@ -507,10 +471,10 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 mb-2 mb-lg-0">
-            <p class="text-center text-lg-left">©2019 Bootstrapious.</p>
+            <p class="text-center text-lg-left">©2019 Vangoah</p>
           </div>
           <div class="col-lg-6">
-            <p class="text-center text-lg-right">More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+           
 
             </p>
           </div>
