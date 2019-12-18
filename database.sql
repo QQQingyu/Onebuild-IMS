@@ -1,14 +1,14 @@
 
 CREATE TABLE IF NOT EXISTS `Account` (
-  `acc_id` 			int(30) 		NOT NULL AUTO_INCREMENT,
+  `acc_id` 			varchar(20) 	NOT NULL ,
   `username` 		varchar(40) 	NOT NULL,
   `password` 		varchar(20) 	NOT NULL,
   `acc_type` 		tinyint(1) 		NOT NULL DEFAULT '1',
   PRIMARY KEY (acc_id)
-)AUTO_INCREMENT=1;
+);
 
 CREATE TABLE IF NOT EXISTS `Customer_info` (
-	`acc_id`		int(30)		NOT NULL AUTO_INCREMENT,
+	`acc_id`		varchar(20)	NOT NULL ,
 	`cus_1st_name`	varchar(20)	NOT NULL,
 	`cus_2nd_name`	varchar(20)	NOT NULL,
 	`address`		varchar(50)	NOT NULL,	
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `Customer_info` (
 	PRIMARY KEY (`acc_id`),
 	CONSTRAINT `customer_info_fk` FOREIGN KEY (`acc_id`) REFERENCES `account` (`acc_id`)
 	ON DELETE CASCADE
-)AUTO_INCREMENT=1;
+);
 
 
 CREATE TABLE IF NOT EXISTS `Product` (
