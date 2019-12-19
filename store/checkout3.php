@@ -54,11 +54,25 @@ $delivery=$_POST["delivery"];
            
 		   <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
-                <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                <li class="list-inline-item"><a href="register.html">Register</a></li>
-                <li class="list-inline-item"><a href="contact.html">Contact</a></li>
-                <li class="list-inline-item"><a href="#">Recently viewed</a></li>
-              </ul>
+                <?php
+session_start(); 
+?>
+			  <? if (!isset($_SESSION['userID'])) {
+    header("Location: register.php");exit;
+
+			  echo "<li class='list-inline-item'><a href='#' data-toggle='modal' data-target='#login-modal'>Login</a></li>";
+			  }
+			  
+			  else {
+			  	$sql2="SELECT * FROM customer_info where acc_id={$_SESSION['userID']}";
+				$result2 = $conn->query($sql2);
+				$sql_arr2 = $result2->fetch_assoc();
+			  echo "hello  " . $sql_arr2["cus_1st_name"] ." ". $sql_arr2["cus_2nd_name"];
+			  }
+                
+				
+				?>
+				              </ul>
             </div>
           </div>
         </div>
@@ -70,19 +84,18 @@ $delivery=$_POST["delivery"];
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
               </div>
               <div class="modal-body">
-                <form action="customer-orders.html" method="post">
+                <form action="login" method="post">
                   <div class="form-group">
-                    <input id="email-modal" type="text" placeholder="email" class="form-control">
+                    <input id="email-modal" type="text" placeholder="email" class="form-control" name="name">
                   </div>
                   <div class="form-group">
-                    <input id="password-modal" type="password" placeholder="password" class="form-control">
+                    <input id="password-modal" type="password" placeholder="password" class="form-control" name="password">
                   </div>
                   <p class="text-center">
                     <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
                   </p>
                 </form>
-                <p class="text-center text-muted">Not registered yet?</p>
-                <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+            
               </div>
             </div>
           </div>

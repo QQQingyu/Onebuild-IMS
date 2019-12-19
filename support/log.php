@@ -9,12 +9,12 @@ session_start();
 	
 
     if ($user && $pass){
-             $sql = "select * from admin where account = '$user' and password='$pass'";//检测数据库是否有对应的username和password的sql
+             $sql = "select * from account where username = '$user' and password='$pass' and acc_type=1";//检测数据库是否有对应的username和password的sql
              $result = mysqli_query($conn,$sql);//执行sql
              $rows=mysqli_num_rows($result);//返回一个数值
              if(mysqli_num_rows($result)>0){//0 false 1 true
                  $data = mysqli_fetch_array($result);
-                 $_SESSION['userID']=$data['id'];
+                 $_SESSION['userID']=$data['acc_id'];
                  $_SESSION['userName']=$data['username'];
                  echo"<script>
                         confirm('Welcome Back!');

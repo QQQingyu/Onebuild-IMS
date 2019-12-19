@@ -33,7 +33,6 @@ session_start();
 <?php
 
     $id = intval($_GET['id']);
-	echo $id;
 	$sqll="SELECT * FROM product where id={$id}";
 	$result = $conn->query($sqll);
 	$sql_arr = $result->fetch_assoc();
@@ -79,9 +78,10 @@ session_start();
 			<label class="form-label col-2">Picture</label>
 			<div class="formControls col-10">
 			
-<input value="upload/<?php echo $sql_arr['pic']?>" type="file" name="file" id="file" /> 
+<input value="<?php echo $sql_arr['pic']?>" type="file" name="file" id="file" /> 
+<input value="<?php echo $sql_arr['pic']?>" type="hidden" name="picture" >
 			</div>
-			<td width='180px' ><a href='' class='avatar'><img src='upload/<?php echo $sql_arr['pic']?>' /></a></td>
+			<td width='180px' align="left"  ><a href='' class='avatar'><img  align="left" src='upload/<?php echo $sql_arr['pic']?>' /></a></td>
 		</div>
          <div class="clearfix cl">
          <label class="form-label col-2">Description：</label>
@@ -93,7 +93,7 @@ session_start();
 		<div class="clearfix cl">
 			<div class="Button_operation">
 				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="icon-save "></i>Submit</button>
-				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;Cancel&nbsp;&nbsp;</button>
+				<button onClick="javascript:history.go(-1);" class="btn btn-default radius" type="button">&nbsp;&nbsp;Cancel&nbsp;&nbsp;</button>
 			</div>
 		</div>
 	</form>

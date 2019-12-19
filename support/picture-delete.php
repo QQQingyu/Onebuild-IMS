@@ -13,7 +13,7 @@ session_start();
 	$_sql="DELETE FROM product WHERE id={$id}"; 
 
 	$_result = $conn->query($_sql);
-	    if($result){
+	    if($_result){
         exit("<script>
             alert('Delete successfully');
             location.href='Products_List.php'

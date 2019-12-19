@@ -43,7 +43,7 @@
       <div class="title_names">Search</div>
 	  <form action="" method="post" class="form form-horizontal" id="form-article-add" enctype="multipart/form-data">
       <ul class="search_content clearfix">
-	  <li><label class="l_f">搜索项目</label>
+	  <li><label class="l_f">Search category</label>
 	  <select name="search_type" id="search_type">
 	  <option value="num">Num</option>
 	  <option value="name">name</option>
@@ -60,7 +60,7 @@
         <a href="picture-add.php" title="Add product" class="btn btn-warning Order_form"><i class="icon-plus"></i>Add Product</a>
         
        </span>
-       <span class="r_f">共：<b>2334</b>件商品</span>
+       
 	   </form>
      </div>
      <!--产品列表展示-->
@@ -81,8 +81,10 @@
 				<th width="25px"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
 				<th width="80px">NO.</th>
 				<th width="250px">Name</th>
+				<th width="80px">Category</th>
+				<th width="80px">SubCategory</th>
 				<th width="100px">Price</th>
-				<th width="180px">Description</th>		
+<!--				<th width="180px">Description</th>	-->	
 				<th width="80px">Pic</th>
 				<th width="70px">State</th>                
 				<th width="200px">Operation</th>
@@ -91,7 +93,7 @@
 
 	<tbody>
 	
-
+       <!-- <td class= 'icoFontlist' title='".$row["description"]. "' width='180px'>". substr($row["description"],0,30). "...</td>  -->
 <?
 include_once("conn.php");
 if (ISSET($_POST["search"])){
@@ -110,20 +112,22 @@ $sql= "SELECT * FROM  product where {$searchtype} like '%{$search}%'";}
         <td width='80px'>" . $row["id"] . "</td>
 		
         <td width='250px'><u style='cursor:pointer' class='text-primary' onclick=''>" .$row["name"]. "</u></td>
+		<td width='80px'><u style='cursor:pointer' class='text-primary' onclick=''>" .$row["category"]. "</u></td>
+		<td width='80px'><u style='cursor:pointer' class='text-primary' onclick=''>" .$row["subcategory"]. "</u></td>
         <td width='100px'>" .$row["price"]. "</td>
-        <td class= 'icoFontlist' title='".$row["description"]. "' width='180px'>". substr($row["description"],0,30). "...</td>        
+      
         <td width='80px'><a href='' class='avatar'><img src='upload/".$row["pic"]. "' /></a></td>
         <td class='td-status'><span class='label label-success radius'>".$row["state"]. "</span></td>
         <td class='td-manage'>
         <a href='picture-state.php?id=" .$row['id']. "'><i class='icon-ok bigger-120'></i></a> 
         <a href='picture-edit.php?id=" .$row['id']. "'><i class='icon-edit bigger-120'></i></a> 
 		
-         <a href='picture-delete.php?id=" .$row['id']. "' οnclick='return confirm('确定将这些记录删除吗?')'><i class='icon-trash  bigger-120'></i></a>
+         <a href='picture-delete.php?id=" .$row['id']. "' οnclick='return confirm('Sure to delete this record?')'><i class='icon-trash  bigger-120'></i></a>
        </td>
 	  </tr>";
     }
 } else {
-    echo "0 结果";
+    echo "0 result";
 }
  
 
@@ -231,7 +235,7 @@ var setting = {
 	}
 };
 
-var zNodes =[
+<!--var zNodes =[
 	{ id:1, pId:0, name:"商城分类列表", open:true},
 	{ id:11, pId:1, name:"蔬菜水果"},
 	{ id:111, pId:11, name:"蔬菜"},
@@ -248,7 +252,7 @@ var zNodes =[
 	{ id:14, pId:1, name:"服装鞋帽"},
 	{ id:141, pId:14, name:"手机 "},
 	{ id:42, pId:14, name:"照相机 "},
-];
+];-->
 		
 var code;
 		

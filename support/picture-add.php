@@ -5,6 +5,7 @@ session_start();
 <!DOCTYPE HTML>
 <html>
 <head>
+
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -29,12 +30,15 @@ session_start();
 
 <title>Add Product</title>
 </head>
-<body>
+
+ 
+
+
 <div class="clearfix" id="add_picture">
 
 
    <div class="type_title">Adding product</div>
-	<form action="adding.php" method="post" class="form form-horizontal" id="form-article-add" enctype="multipart/form-data">
+	<form action="adding.php" method="post" class="form form-horizontal" id="form-article-add" enctype="multipart/form-data" name="form1" id="form1">
 		<div class="clearfix cl">
          <label class="form-label col-2"><span class="c-red">*</span>Name：</label>
 		 <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="Name" name="Name"></div>
@@ -43,7 +47,28 @@ session_start();
          <label class="form-label col-2"><span class="c-red">*</span>No：</label>
 		 <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="num" name="num"></div>
 		</div>
-		<div class="clearfix cl">
+	
+		
+				<div class="clearfix cl">
+         <label class="form-label col-2"><span class="c-red">*</span>category：</label>
+<select name="s1" id="s1">
+<option selected>Please Select</option>
+<option value="MEN">MEN</option>
+<option value="WOMEN">WOMEN</option>
+<option value="BOYS">BOYS</option>
+<option value="GIRLS">GIRLS</option>
+</select>
+
+<select name="s2" id="s2"  >
+<option selected >Please Select</option>
+<option value="T-shirt" >T-shirt</option>
+<option value="Shirts">Shirts</option>
+<option value="Pants">Pants</option>
+<option value="Jeans">Jeans</option>
+</select>
+		</div>
+		
+			<div class="clearfix cl">
          <label class="form-label col-2"><span class="c-red">*</span>Price：</label>
 		 <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="Price" name="Price"></div>
 		</div>
@@ -77,13 +102,52 @@ session_start();
 		<div class="clearfix cl">
 			<div class="Button_operation">
 				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="icon-save "></i>Submit</button>
-				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;Cancel&nbsp;&nbsp;</button>
+				<button onClick="javascript:history.go(-1);" class="btn btn-default radius" type="button">&nbsp;&nbsp;Cancel&nbsp;&nbsp;</button>
 			</div>
 		</div>
 	</form>
     </div>
 </div>
 </div>
+<!-- <script language="javascript">
+//获取一级菜单长度
+var select1_len = document.frm.s1.options.length;
+var select2 = new Array(select1_len);
+//把一级菜单都设为数组
+for (i=0; i<select1_len; i++)
+{ select2[i] = new Array();}
+//定义基本选项
+select2[0][0] = new Option("Please Select", " ");
+
+select2[1][0] = new Option("T-shirt", " ");
+select2[1][1] = new Option("Shirts", " ");
+select2[1][2] = new Option("Pants", " ");
+
+select2[2][0] = new Option("Trainers", " ");
+select2[2][1] = new Option("Sandals", " ");
+select2[2][2] = new Option("Hiking Shoes", " ");
+
+select2[3][0] = new Option("Ring", " ");
+select2[3][1] = new Option("neck Lace", " ");
+select2[3][2] = new Option("Hat", " ");
+
+select2[4][0] = new Option("Glasses", " ");
+select2[4][1] = new Option("Glasses", " ");
+select2[4][2] = new Option("Glasses", " ");
+//联动函数
+function redirec(x)
+{
+var temp = document.frm.s2;
+for (i=0;i<select2[x].length;i++)
+{ temp.options[i]=new Option(select2[x][i].text,select2[x][i].value);}
+temp.options[0].selected=true;
+}
+</script>-->
+
+
+
+
+
 <script src="js/jquery-1.9.1.min.js"></script>   
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/typeahead-bs2.min.js"></script>

@@ -1,24 +1,79 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-
+<br><!DOCTYPE html>
+<html lang="utf-8">
 <head>
-    <meta charset="UTF-8">
-    <title>ueditor demo</title>
+    <meta charset="UTF-8" />
+    <title>form±íµ¥Ö®select²Ù×÷</title>
+<script type="text/javascript">
+var arr_province = ["ÇëÑ¡ÔñÊ¡/³ÇÊĞ","bj","sh","Ìì½òÊĞ","ÖØÇìÊĞ","ÉîÛÚÊĞ","¹ã¶«Ê¡","ºÓÄÏÊ¡"];
+var arr_city = [
+                ["ÇëÑ¡Ôñ³ÇÊĞ/µØÇø"],
+                ["dcq","xcq","³¯ÑôÇø","ĞûÎäÇø","²ıÆ½Çø","´óĞËÇø","·áÌ¨Çø","º£µíÇø"],
+                ['bsq','³¤ÄşÇø','·áÏÍÇø', 'ºç¿ÚÇø','»ÆÆÖÇø','ÇàÆÖÇø','ÄÏ»ãÇø','Ğì»ãÇø','Â¬ÍåÇø'],
+                ['ºÍÆ½Çø', 'ºÓÎ÷Çø', 'ÄÏ¿ªÇø', 'ºÓ±±Çø', 'ºÓ¶«Çø', 'ºìÇÅÇø', 'ÌÁ¹ÅÇø', '¿ª·¢Çø'],
+                ['ÓáÖĞÇø', 'ÄÏ°¶Çø', '½­±±Çø', 'É³Æº°ÓÇø', '¾ÅÁúÆÂÇø', 'Óå±±Çø', '´ó¶É¿ÚÇø', '±±íÕÇø'],
+                ['¸£ÌïÇø', 'ÂŞºşÇø', 'ÑÎÌïÇø', '±¦°²Çø', 'Áú¸ÚÇø', 'ÄÏÉ½Çø', 'ÉîÛÚÖÜ±ß'],
+                ['¹ãÖİÊĞ','»İÖİÊĞ','ÉÇÍ·ÊĞ','Öéº£ÊĞ','·ğÉ½ÊĞ','ÖĞÉ½ÊĞ','¶«İ¸ÊĞ'],
+                ['Ö£ÖİÊĞ']
+            ];
+ 
+onload = function() {
+    var oForm = document.getElementById('form1');
+    var oProvince = oForm.children[0];
+    var oCity = oForm.children[1];
+ 
+    // Ìí¼Óµã»÷ onchange ÊÂ¼ş
+    oProvince.onchange = function() {
+        var _this = this.selectedIndex;
+        // Ä¬ÈÏ½øÀ´¸ß¶ÈÇåÁã
+        oCity.length = 0;
+        // Ö¸¶¨³ÇÊĞÏÂÀ­µÄ¸ß¶È
+        initCity(_this);
+    };
+ 
+    // ³õÊ¼»¯ÏÂÀ­ÁĞ±í
+    init();
+    // init select
+    function init(){
+        var index = 0;
+        // Ö¸¶¨ÏÂÀ­µÄ¸ß¶È
+        oProvince.length = arr_province.length;
+ 
+        // Ñ­»·Êı×é, °ÑÄÚÈİĞ´µ½ÏÂÀ­ÁĞ±íÖĞÈ¥
+        for( var i = 0; i < arr_province.length; i++ ){
+            oProvince.options[i].text = arr_province[i];
+            oProvince.options[i].value = arr_province[i];
+        }
+ 
+        // Ö¸¶¨Ä¬ÈÏË÷ÒıºÅ
+        oProvince.selectedIndex = index;
+        // Ö¸¶¨³ÇÊĞÏÂÀ­µÄ¸ß¶È
+        initCity(index);
+    }
+ 
+    // ³ÇÊĞÏÂÀ­ÄÚÈİ¸ß¶È
+    function initCity(index){
+        // Ö¸¶¨³ÇÊĞÏÂÀ­µÄ¸ß¶È
+        oCity.length = arr_city[index].length;
+ 
+        // Ñ­»·Êı×é, °ÑÄÚÈİĞ´µ½ÏÂÀ­ÁĞ±íÖĞÈ¥
+        for( var i = 0; i < arr_city[index].length; i++ ){
+            oCity.options[i].text = arr_city[index][i];
+            oCity.options[i].value = arr_city[index][i];
+        }
+    }
+ 
+};
+ 
+ 
+</script>
 </head>
-
+ 
 <body>
-    <!-- åŠ è½½ç¼–è¾‘å™¨çš„å®¹å™¨ -->
-    <script id="container" name="content" type="text/plain">
-        è¿™é‡Œå†™ä½ çš„åˆå§‹åŒ–å†…å®¹
-    </script>
-    <!-- é…ç½®æ–‡ä»¶ -->
-    <script type="text/javascript" src="ueditor.config.js"></script>
-    <!-- ç¼–è¾‘å™¨æºç æ–‡ä»¶ -->
-    <script type="text/javascript" src="ueditor.all.js"></script>
-    <!-- å®ä¾‹åŒ–ç¼–è¾‘å™¨ -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('container');
-    </script>
+<form id="form1" method="get" action="testadd.php">
+    Ê¡·İ: <select name="province" style="width:130px;"></select>
+ 
+    ³ÇÊĞ: <select name="city" style="width:130px;"></select>
+	<button type="submit">
+</form>
 </body>
-
 </html>

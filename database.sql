@@ -8,53 +8,47 @@ CREATE TABLE IF NOT EXISTS `Account` (
 );
 
 CREATE TABLE IF NOT EXISTS `Customer_info` (
-	`acc_id`		varchar(20)	NOT NULL ,
+	`acc_id`		varchar(20)	NOT NULL,
 	`cus_1st_name`	varchar(20)	NOT NULL,
 	`cus_2nd_name`	varchar(20)	NOT NULL,
 	`address`		varchar(50)	NOT NULL,	
 	`telephone`	int(20)		NOT NULL,
 	`email`		varchar(30)	NOT NULL,
-	PRIMARY KEY (`acc_id`),
-	CONSTRAINT `customer_info_fk` FOREIGN KEY (`acc_id`) REFERENCES `account` (`acc_id`)
-	ON DELETE CASCADE
+	PRIMARY KEY (`acc_id`)
+	
 );
 
 
 CREATE TABLE IF NOT EXISTS `Product` (
   `prod_id` 	int(20) 		NOT NULL,		#ID
-  `prod_name` 	varchar(100) 	NOT NULL,		#…Ã∆∑√˚
-  `price` 		float 		NOT NULL,		#º€∏Ò
-  `pic` 		varchar(100) 	NOT NULL,		#Õº∆¨
-  `description` text 			NOT NULL,		#√Ë ˆ
-  `state` 		tinyint(1) 		NOT NULL DEFAULT '1',	#◊¥Ã¨
-  `inventory` 	int(20) 		NOT NULL DEFAULT '0',	#ø‚¥Ê
+  `prod_name` 	varchar(100) 	NOT NULL,		#ÂïÜÂìÅÂêç
+  `price` 		float 		NOT NULL,		#‰ª∑Ê†º
+  `pic` 		varchar(100) 	NOT NULL,		#ÂõæÁâá
+  `description` text 			NOT NULL,		#ÊèèËø∞
+  `category`	varchar(20)	NOT NULL,		#‰∏ªÁ±ª
+  `sub_category`varchar(20)		NOT NULL,		#Â≠êÁ±ª
+  `state` 		tinyint(1) 		NOT NULL DEFAULT '1',	#Áä∂ÊÄÅ
+  `inventory` 	int(20) 		NOT NULL DEFAULT '0',	#Â∫ìÂ≠ò
   PRIMARY KEY (`prod_id`)
 );
+
+
+CREATE TABLE IF NOT EXISTS `order` (
+	`order_id`		int(20)		NOT NULL AUTO_INCREMENT,	#ËÆ¢ÂçïÁºñÂè∑
+	`order_time`	date		NOT NULL,	#‰∏ãÂçïÊó∂Èó¥
+	`acc_id`		int(30) 		NOT NULL,	#Â∏êÊà∑ID
+	`total_price`	int(15)		NOT NULL,	#ÊÄª‰ª∑
+	`delivery`		varchar(20)	NOT NULL,	#ËøêËæìÊñπÂºè
+	`payment`		varchar(20)	NOT NULL,	#ÊîØ‰ªòÊñπÂºè
+	PRIMARY KEY (`order_id`)
+	
+);
+
 
 CREATE TABLE IF NOT EXISTS `Prod_order` (
 	`order_id`	int(20)		NOT NULL,
 	`prod_id` 	int(20)		NOT NULL,
-	`quantity`	int(5)		NOT NULL,		# ˝¡ø
-	PRIMARY KEY (`prod_id`, `order_id`),
-	CONSTRAINT `prod_fk` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
-	CONSTRAINT `order_fk` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`)
-)
-
-
-CREATE TABLE IF NOT EXISTS `order` (
-	`order_id`		int(20)		NOT NULL AUTO_INCREMENT,	#∂©µ•±‡∫≈
-	`order_time`	date		NOT NULL,	#œ¬µ• ±º‰
-	`acc_id`		int(30) 		NOT NULL,	#’ ªßID
-	`total_price`	int(15)		NOT NULL,	#◊‹º€
-	`delivery`		varchar(20)	NOT NULL,	#‘À ‰∑Ω Ω
-	`payment`		varchar(20)	NOT NULL,	#÷ß∏∂∑Ω Ω
-	PRIMARY KEY (`order_id`),
-	CONSTRAINT `order_acc_fk` FOREIGN KEY (`acc_id`) REFERENCES `account` (`acc_id`)
+	`quantity`	int(5)		NOT NULL,	#Êï∞Èáè
+	PRIMARY KEY (`prod_id`, `order_id`)
+	
 );
-
-
-DROP TABLE Account;
-DROP TABLE Customer_info;
-DROP TABLE product;
-DROP TABLE `order`;
-DROP TABLE `Prod_order`;

@@ -1,4 +1,7 @@
 <? include_once("conn.php"); ?>
+               <?php
+session_start(); 
+?>
 <?
 $num = $_POST['number'];
 $id=$_POST["id"];
@@ -11,12 +14,16 @@ $email=$_POST["email"];
 $delivery=$_POST["delivery"];
 $payment=$_POST["payment"];
 $total=$num*$price;
+$datetime=date("Y-m-d");
+$accid=$_SESSION['userID'];
 ?>
 <?
 
     if ($num && $id && $price && $firstname && $payment ){
-             $sql1 = "INSERT INTO vorder (pid, firstname, lastname, address, phone, email, delivery,payment,price, num, total) 
-			 VALUES ('$id', '$firstname', '$lastname', '$address' , '$phone','$email', '$delivery','$payment', '$price','$num','$total');" ;
+	//$sql1= "INSERT INTO `order` (`order_id`, `pid`, `order_time`, `acc_id`, `total_price`, `delivery`, `payment`) VALUES (NULL, \'5\', \'2019-12-03\', \'5\', \'5\', \'5\', \'5\')";
+
+          $sql1 = "INSERT INTO  vorder(order_id , pid , order_time , acc_id , delivery , payment, total_price) 
+		VALUES (NULL,'$id', '$datetime', '$accid', '$delivery', '$payment', '$total');" ;
              if (mysqli_query($conn, $sql1)) {
 			 $sql2="SELECT * FROM product where id={$id}";
 	$result = $conn->query($sql2);

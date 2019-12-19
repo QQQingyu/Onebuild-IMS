@@ -61,7 +61,7 @@
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="icon-coffee green"></i>
-												管理员登陆
+												Login
 											</h4>
 
 											<div class="login_icon"><img src="images/login.png" /></div>
@@ -101,7 +101,7 @@
 											</form>
 
 											<div class="social-or-login center">
-												<span class="bigger-110">通知</span>
+												<span class="bigger-110">--</span>
 											</div>
 
 										
@@ -117,7 +117,7 @@
 							</div><!-- /position-relative -->
 						</div>
                         </div>
-                        <div class="loginbm">版权所有  2019  <a href="">Vangoah</a> </div><strong></strong>
+                        <div class="loginbm">Copyright Reserved  2019  <a href="">Vangoah</a> </div><strong></strong>
 </body>
                            ';}     ?>
 </html>

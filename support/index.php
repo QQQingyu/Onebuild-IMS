@@ -1,7 +1,10 @@
 ﻿<!DOCTYPE html>
 <? include_once("conn.php"); ?>
 <?php
-session_start();
+session_start(); 
+if ( !$_SESSION['userID'] ) {
+    header("Location: login.php");exit;
+}
 ?>
 <html lang="en">
 	<head>
@@ -201,27 +204,19 @@ $('.change_Password').on('click', function(){
 	</head>
 	<body>
 		<div class="navbar navbar-default" id="navbar">
-        <script type="text/javascript">
-				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
-			</script>
+
 			<div class="navbar-container" id="navbar-container">
-				<div class="navbar-header pull-left">
-					<a href="#" class="navbar-brand">
-						<small>					
-						<img src="images/logo.png">
-						</small>
-					</a><!-- /.brand -->
-				</div><!-- /.navbar-header -->
+
 			   <div class="navbar-header pull-right" role="navigation">
                <ul class="nav ace-nav">	
                 <li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<span  class="time"><em id="time"></em></span><span class="user-info"><small>Welcome,</small><? echo$_SESSION['userName'] ?>	</span>
+								<span class="user-info"><small>Welcome,</small><? echo$_SESSION['userName'] ?>	</span>
 								<i class="icon-caret-down"></i>
 							</a>
 							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 								<li class="divider"></li>
-								<li><a href="login.php" id="Exit_system"><i class="icon-off"></i>exit</a></li>
+								<li><a href="exit.php" id="Exit_system"><i class="icon-off"></i>exit</a></li>
 							</ul>
 						</li>
 	                   <li class="purple">
@@ -263,67 +258,28 @@ $('.change_Password').on('click', function(){
 						</div>
 					</div><!-- #sidebar-shortcuts -->
 					<ul class="nav nav-list" id="nav_list">
-				     <li class="home"><a href="javascript:void(0)" name="home.html" class="iframeurl" title=""><i class="icon-dashboard"></i><span class="menu-text"> Index </span></a></li>
+				   
                      <li><a href="#" class="dropdown-toggle"><i class="icon-desktop"></i><span class="menu-text"> Product management </span><b class="arrow icon-angle-down"></b></a>
 					   <ul class="submenu">
                          <li class="home"><a  href="javascript:void(0)" name="Products_List.php"  title="Product_List" class="iframeurl"><i class="icon-double-angle-right"></i>Product List</a></li>
 
 						</ul>
 					</li>
-					<li>
-					<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text"> 图片管理 </span><b class="arrow icon-angle-down"></b></a>
-						<ul class="submenu">
-						<li class="home"><a href="javascript:void(0)" name="advertising.html" title="广告管理" class="iframeurl"><i class="icon-double-angle-right"></i>广告管理</a></li>
-						<li class="home"><a href="javascript:void(0)" name="Sort_ads.html" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
-							</ul>
-						</li>
-					<li>
-					<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 交易管理 </span><b class="arrow icon-angle-down"></b></a>
+					
+					<li><a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> tranction management </span><b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
-                    <li class="home"><a href="javascript:void(0)" name="transaction.html" title="交易信息"  class="iframeurl"><i class="icon-double-angle-right"></i>交易信息</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Orderform.html" title="订单管理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单管理</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Amounts.html" title="交易金额"  class="iframeurl"><i class="icon-double-angle-right"></i>交易金额</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Order_handling.html" title="订单处理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单处理</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Cover_management.html" title="支付管理"  class="iframeurl"><i class="icon-double-angle-right"></i>支付管理</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="order_list.php" title="transaction"  class="iframeurl"><i class="icon-double-angle-right"></i>OrderManagement</a></li>
                    </ul>
 				  </li>
                   <li>
-					<a href="#" class="dropdown-toggle"><i class="icon-user"></i><span class="menu-text"> 会员管理 </span><b class="arrow icon-angle-down"></b></a>
+					<a href="#" class="dropdown-toggle"><i class="icon-user"></i><span class="menu-text"> Member </span><b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
-                    <li class="home"><a href="javascript:void(0)" name="user_list.html" title="会员列表"  class="iframeurl"><i class="icon-double-angle-right"></i>会员列表</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="member-Grading.html" title="等级管理"  class="iframeurl"><i class="icon-double-angle-right"></i>等级管理</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="integration.html" title="会员记录管理"  class="iframeurl"><i class="icon-double-angle-right"></i>会员记录管理</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="user_list.php" title="Member List"  class="iframeurl"><i class="icon-double-angle-right"></i>Member List</a></li>
 
                    </ul>
 				  </li>
-						<li><a href="#" class="dropdown-toggle"><i class="icon-edit"></i><span class="menu-text"> 消息管理 </span><b class="arrow icon-angle-down"></b></a>
-							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="Guestbook.html" title="留言列表" class="iframeurl"><i class="icon-double-angle-right"></i>留言列表</a></li>
-                                <li class="home"><a href="javascript:void(0)" name="Feedback.html" title="意见反馈" class="iframeurl"><i class="icon-double-angle-right"></i>意见反馈</a></li>
-							</ul>
-						</li>
-						<li><a href="#" class="dropdown-toggle"><i class="icon-edit"></i><span class="menu-text"> 文章管理 </span><b class="arrow icon-angle-down"></b></a>
-							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="Guestbook.html" title="文章列表" class="iframeurl"><i class="icon-double-angle-right"></i>文章列表</a></li>
-                                <li class="home"><a href="javascript:void(0)" name="Feedback.html" title="分类分类" class="iframeurl"><i class="icon-double-angle-right"></i>分类分类</a></li>
-							</ul>
-						</li>
-                        	<li><a href="#" class="dropdown-toggle"><i class="icon-cogs"></i><span class="menu-text"> 系统管理 </span><b class="arrow icon-angle-down"></b></a>
-							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="Systems.html" title="系统设置" class="iframeurl"><i class="icon-double-angle-right"></i>系统设置</a></li>
-								<li class="home"><a href="javascript:void(0)" name="菜单管理.html" title="栏目管理" class="iframeurl"><i class="icon-double-angle-right"></i>栏目管理</a></li>
-							
-                                <li class="home"><a href="javascript:void(0)" name="用户管理.html" title="系统日志" class="iframeurl"><i class="icon-double-angle-right"></i>系统日志</a></li>
-							</ul>
-						</li>
-                        <li><a href="#" class="dropdown-toggle"><i class="icon-group"></i><span class="menu-text"> 管理员管理 </span><b class="arrow icon-angle-down"></b></a>
-							<ul class="submenu">
-							
-								<li class="home"><a href="javascript:void(0)" name="admin_Competence.html" title="权限管理"  class="iframeurl"><i class="icon-double-angle-right"></i>权限管理</a></li>
-                                <li class="home"><a href="javascript:void(0)" name="administrator.html" title="管理员列表" class="iframeurl"><i class="icon-double-angle-right"></i>管理员列表</a></li>
-								  <li class="home"><a href="javascript:void(0)" name="admin_info.html" title="个人信息" class="iframeurl"><i class="icon-double-angle-right"></i>个人信息</a></li>
-							</ul>
-						</li>
+						
+                       
 					</ul>
 					<div class="sidebar-collapse" id="sidebar-collapse">
 						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
@@ -340,7 +296,7 @@ $('.change_Password').on('click', function(){
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="index.html">首页</a>
+								<a href="index.php">HOME</a>
 							</li>
 							<li class="active"><span class="Current_page iframeurl"></span></li>
                             <li class="active" id="parentIframe"><span class="parentIframe iframeurl"></span></li>
@@ -348,7 +304,7 @@ $('.change_Password').on('click', function(){
 						</ul>
 					</div>
                     
-                 <iframe id="iframe" style="border:0; width:100%; background-color:#FFF;"name="iframe" frameborder="0" src="home.html">  </iframe>
+                 <iframe id="iframe" style="border:0; width:100%; background-color:#FFF;"name="iframe" frameborder="0" src="Products_List.php">  </iframe>
 				 
 
 <!-- /.page-content -->
@@ -359,55 +315,19 @@ $('.change_Password').on('click', function(){
                           <i class="icon-cog bigger-150"></i>
                       </div>
   
-                      <div class="ace-settings-box" id="ace-settings-box">
-                          <div>
-                              <div class="pull-left">
-                                  <select id="skin-colorpicker" class="hide">
-                                      <option data-skin="default" value="#438EB9">#438EB9</option>
-                                      <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-                                      <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-                                      <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-                                  </select>
-                              </div>
-                              <span>&nbsp; 选择皮肤</span>
-                          </div>
-  
-                          <div>
-                              <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
-                              <label class="lbl" for="ace-settings-sidebar"> 固定滑动条</label>
-                          </div>
-  
-                          <div>
-                              <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
-                              <label class="lbl" for="ace-settings-rtl">切换到左边</label>
-                          </div>
-  
-                          <div>
-                              <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
-                              <label class="lbl" for="ace-settings-add-container">
-                                  切换窄屏
-                                  <b></b>
-                              </label>
-                          </div>
-                      </div>
-                  </div><!-- /#ace-settings-container -->		
+                      
 	</div><!-- /.main-container-inner -->
 			
 		</div>
          <!--底部样式-->
        
          <div class="footer_style" id="footerstyle">  
-          <p class="l_f">版权所有：XX网络科技有限公司  桂ICP备XXXXXXXX号</p>
-          <p class="r_f">地址：中国广西南宁市民族大道888号  邮编：530000 技术支持：XX科技</p>
+          <p class="l_f">©2019 Vangoah</p>
+
          </div>
          <!--修改密码样式-->
          <div class="change_Pass_style" id="change_Pass">
-            <ul class="xg_style">
-             <li><label class="label_name">原&nbsp;&nbsp;密&nbsp;码</label><input name="原密码" type="password" class="" id="password"></li>
-             <li><label class="label_name">新&nbsp;&nbsp;密&nbsp;码</label><input name="新密码" type="password" class="" id="Nes_pas"></li>
-             <li><label class="label_name">确认密码</label><input name="再次确认密码" type="password" class="" id="c_mew_pas"></li>
-              
-            </ul>
+
      <!--       <div class="center"> <button class="btn btn-primary" type="button" id="submit">确认修改</button></div>-->
          </div>
         <!-- /.main-container -->

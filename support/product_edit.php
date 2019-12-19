@@ -40,7 +40,9 @@ else
     $num = intval($_POST['num']);//post获得用户密码单值
 	$price=floatval($_POST['Price']);
 	$content=$_POST['content'];
-	$pic_path=$fileName;
+	if(isset($filename)){
+	$pic_path=$fileName;}
+	else {$pic_path=$_POST['picture'];}
 	$state=intval($_POST['state']);
 	$inventory=intval($_POST['Inventory']);
 	$id=intval($_POST['num']);

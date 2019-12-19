@@ -38,21 +38,23 @@ else
 
     $name = $_POST['Name'];//post获得用户名表单值
     $num = intval($_POST['num']);//post获得用户密码单值
+	$category= $_POST['s1'];
+	$subcategory=$_POST['s2'];
 	$price=floatval($_POST['Price']);
 	$content=$_POST['content'];
 	$pic_path= $fileName;
-	$state=intval($_POST['State']);
+	$state=intval($_POST['state']);
 	$inventory=intval($_POST['Inventory']);
 
     if ($name && $num && $price && $content && $pic_path ){
 		     echo $num . $name .  $price . $pic_path . $content;
-             $sql = "INSERT INTO product (id, name, price, pic, description, state,inventory) 
-			 VALUES ('$num', '$name', '$price', '$pic_path' , '$content','$state', '$inventory');" ;//检测数据库是否有对应的username和password的sql
+             $sql = "INSERT INTO product (id, name, price, pic, description, state,inventory,category,subcategory) 
+			 VALUES ('$num', '$name', '$price', '$pic_path' , '$content','$state', '$inventory','$category', '$subcategory');" ;//检测数据库是否有对应的username和password的sql
              if (mysqli_query($conn, $sql)) {
     echo "successfully";
 				                 echo "
                       <script>
-                            setTimeout(function(){window.location.href='Products_List.php';},30000);
+                            setTimeout(function(){window.location.href='Products_List.php';},500);
                       </script>";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
